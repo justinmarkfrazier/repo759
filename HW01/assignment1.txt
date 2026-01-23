@@ -1,0 +1,66 @@
+1)
+
+I went through a) through c) and understand how to time code, how to submit my assignments with git, and what the recommended workflow is when it comes to working on myt assignment
+
+
+
+
+2)
+
+a.
+
+cd somedir
+
+b.
+
+cat sometext.txt
+
+c.
+
+tail -n 5 sometext.txt
+
+d.
+
+tail -n 5 *.txt
+
+e.
+
+for i in {0..6}
+do
+echo "$i"
+done
+
+
+
+
+3)
+
+a.
+
+No
+
+b.
+
+gcc/12.2.0, gcc/13.2.0, and gcc/14.3.0 are all available
+
+c.
+
+    list of available cuda modules:
+nvidia/cuda/10.2.2
+nvidia/cuda/11.8.0
+nvidia/cuda/12.5.0
+nvidia/nvhpc-hpcx-cuda12/23.11
+nvidia/cuda/11.0.3
+nvidia/cuda/12.0.0
+nvidia/cuda/12.9.1
+nvidia/nvhpc-hpcx-cuda12/24.5  (D)
+nvidia/cuda/11.3.1
+nvidia/cuda/12.1.0
+nvidia/cuda/13.0.0            (D)
+nvidia/cuda/11.6.0
+nvidia/cuda/12.2.0
+nvidia/nvhpc-hpcx-cuda11/24.5
+
+d.
+
+matlab/r2023a is the module for the 2023 release of MATLAB, which is a computing environment and high-level programming language well suited for engineering applications.
