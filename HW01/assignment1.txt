@@ -64,3 +64,39 @@ nvidia/nvhpc-hpcx-cuda11/24.5
 d.
 
 matlab/r2023a is the module for the 2023 release of MATLAB, which is a computing environment and high-level programming language well suited for engineering applications.
+
+
+
+
+5)
+
+a.
+
+The job starts out in the directory the submit script lies in, which in this case is /srv/home/jmfrazier2/repo759/HW01
+
+b.
+
+SLURM_JOB_ID is an environment variable that is equal to the numeric job identifier Slurm assigns to the job
+
+c.
+
+I would type "squeue -u jmfrazier2" in bash which would list all my queued and currently running jobs
+
+d.
+
+I would type "scancel [job_id]" in bash where job_id is the Slurm
+
+e.
+
+That header requests a single GPU be allocated for the Slurm job
+
+f.
+
+That header requests that an array of jobs (each with a unique job identifier) be submitted according to the instructions in the batch submission script, which may involve slight changes in parameters or files for each job
+
+
+
+
+7)
+
+I filled out the survey
