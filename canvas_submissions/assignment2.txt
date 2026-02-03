@@ -1,0 +1,9 @@
+3. 
+f)  
+
+mmul2 is much faster than mmul1 because the inner loop in mmul1 is k, so there are jumps in
+the row-major stored memory of the array B[k * n + j], whereas in mmul2 the inner loop is over j,
+which leads to good locality for B[k * n + j] and C[i * n + j]. mmul3 is much slower than mmul1
+because the inner loop is over i, which means A[i * n + k] and C[i * n + j] both have bad locality.
+mmul4 is about the same speed as mmul1 because it uses the same loop order, so the variable type 
+is not the dominant effect on program speed in this case and is instead dominated by memory access.
