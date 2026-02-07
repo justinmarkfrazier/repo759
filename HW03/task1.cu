@@ -5,14 +5,12 @@
 __global__ void simpleKernel(int* data) { 
     // compute a! for threadIdx = a
     int a = threadIdx.x + 1; // threadIdx starts at 0, but we want to compute factorial starting at 1
-    printf("Thread %d is computing %d!\n", threadIdx.x, a);
+
     int factorial = 1;
     for (int i = 2; i <= a; ++i) {
-        printf("Thread %d is multiplying %d by %d\n", threadIdx.x, factorial, i);
         factorial *= i;
     }
     data[threadIdx.x] = factorial;
-    printf("Thread %d has computed %d! = %d\n", threadIdx.x, a, factorial);
 }
 
 int main() {
