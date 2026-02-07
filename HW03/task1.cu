@@ -4,8 +4,9 @@
 __global__ void simpleKernel(int* data) { 
     // compute a! for threadIdx = a
     int a = threadIdx.x + 1; // threadIdx starts at 0, but we want to compute factorial starting at 1
+    std::cout << "Thread " << threadIdx.x << " is computing " << a << "!\n";
     int factorial = 1;
-    for (int i = 1; i <= a; ++i) {
+    for (int i = 2; i <= a; ++i) {
         factorial *= i;
     }
     data[a] = factorial;
