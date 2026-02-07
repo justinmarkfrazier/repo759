@@ -18,6 +18,9 @@ int main(int argc, char *argv[]) {
     cudaEventCreate(&start);
     cudaEventCreate(&stop);
 
+    // Prevent cold start from affecting timing
+    cudaFree(0);
+
 
     int n = std::atoi(argv[1]);
 
