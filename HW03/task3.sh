@@ -9,6 +9,6 @@
 
 module load nvidia/cuda/13.0.0
 
-nvcc task3.cu vscale.cu -Xcompiler -O3 -Xcompiler -Wall -Xptxas -O3-std=c++17 -o task3
+nvcc task3.cu vscale.cu -Xcompiler -O3 -Xcompiler -Wall -Xptxas -O3 -std=c++17 -o task3
 
 srun ./task3
