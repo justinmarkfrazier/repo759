@@ -3,7 +3,7 @@
 
 __global__ void simpleKernel(int* data) { 
     // compute a! for threadIdx = a
-    int a = threadIdx.x;
+    int a = threadIdx.x + 1; // threadIdx starts at 0, but we want to compute factorial starting at 1
     int factorial = 1;
     for (int i = 1; i <= a; ++i) {
         factorial *= i;
