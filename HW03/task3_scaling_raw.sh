@@ -4,6 +4,7 @@
 #SBATCH --mem=12G
 #SBATCH --nodes=1
 #SBATCH --ntasks=1
+#SBATCH --gres=gpu:1
 #SBATCH -J hpc_hw
 
 set -euo pipefail
