@@ -5,6 +5,10 @@
 #include <chrono>
 #include <cuda.h>
 
+// Empty kernel to prevent cold start from affecting timing
+__global__ void noop() {}
+
+
 float rand_num(float min, float max) {
     static thread_local std::mt19937 rng{std::random_device{}()};
     std::uniform_real_distribution<float> dist(min, max);
@@ -20,6 +24,8 @@ int main(int argc, char *argv[]) {
 
     // Prevent cold start from affecting timing
     cudaFree(0);
+    noop<<<1, 1>>>();
+    cudaDeviceSynchronize();
 
 
     int n = std::atoi(argv[1]);
