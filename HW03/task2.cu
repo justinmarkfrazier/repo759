@@ -25,6 +25,7 @@ int main() {
     int hA[numThreads * numBlocks], *dA;
 
     int a = rand_int(1, 10);
+    printf("Random integer a: %d\n", a);
     // allocate memory on the device (GPU); zero out all entries in this device array
     cudaMalloc((void**)&dA, sizeof(int) * numThreads * numBlocks);
     cudaMemset(dA, 0, numThreads * numBlocks * sizeof(int));
