@@ -14,7 +14,7 @@ datafile="results.txt"
 for i in {10..29}; do
   n=$((2**i))
 
-  out=$(srun --quiet ./task3 "$n")
+  out=$(./task3 "$n")
 
   # Grab the first line that *starts* with a number (handles scientific notation too),
   # then take its first field.
