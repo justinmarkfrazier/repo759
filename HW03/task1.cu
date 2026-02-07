@@ -11,26 +11,28 @@ __global__ void simpleKernel(int* data) {
         printf("Thread %d is multiplying %d by %d\n", threadIdx.x, factorial, i);
         factorial *= i;
     }
-    data[a] = factorial;
+    data[threadIdx.x] = factorial;
     printf("Thread %d has computed %d! = %d\n", threadIdx.x, a, factorial);
 }
 
 int main() {
-  const int numThreads = 8;
-  int hA[numThreads], *dA;
+    const int numThreads = 8;
+    int hA[numThreads], *dA;
 
-  // allocate memory on the device (GPU); zero out all entries in this device array
-  cudaMalloc((void**)&dA, sizeof(int) * numThreads);
-  cudaMemset(dA, 0, numThreads * sizeof(int));
-  // invoke GPU kernel, with one block and numThreads threads
-  simpleKernel<<<1, numThreads>>>(dA);
-  // wait for the GPU to finish before accessing on host (CPU)
-  cudaDeviceSynchronize();
-  // copy the results back to the host (CPU)
-  cudaMemcpy(hA, dA, sizeof(int) * numThreads, cudaMemcpyDeviceToHost);
-  // print the results
-    for (int i = 0; i < numThreads; ++i) {
-        std::cout << hA[i] << "\n";
-    }
-  return 0;
+    // allocate memory on the device (GPU); zero out all entries in this device array
+    cudaMalloc((void**)&dA, sizeof(int) * numThreads);
+    cudaMemset(dA, 0, numThreads * sizeof(int));
+    // invoke GPU kernel, with one block and numThreads threads
+    simpleKernel<<<1, numThreads>>>(dA);
+    // wait for the GPU to finish before accessing on host (CPU)
+    cudaDeviceSynchronize();
+    // copy the results back to the host (CPU)
+    cudaMemcpy(hA, dA, sizeof(int) * numThreads, cudaMemcpyDeviceToHost);
+    // print the results
+        for (int i = 0; i < numThreads; ++i) {
+            std::cout << hA[i] << "\n";
+        }
+    // free the memory allocated on the device (GPU)
+    cudaFree(dA);
+    return 0;
 }
