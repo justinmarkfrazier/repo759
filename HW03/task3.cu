@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     cudaMemcpy(dB, hB.data(), n * sizeof(float), cudaMemcpyHostToDevice);
 
     // Define block and grid sizes
-    int blockSize = 512;
+    int blockSize = 16;
     int numBlocks = (n + blockSize - 1) / blockSize;
 
     // Time kernel execution
