@@ -8,9 +8,11 @@ __global__ void simpleKernel(int* data) {
     printf("Thread %d is computing %d!\n", threadIdx.x, a);
     int factorial = 1;
     for (int i = 2; i <= a; ++i) {
+        printf("Thread %d is multiplying %d by %d\n", threadIdx.x, factorial, i);
         factorial *= i;
     }
     data[a] = factorial;
+    printf("Thread %d has computed %d! = %d\n", threadIdx.x, a, factorial);
 }
 
 int main() {
