@@ -1,11 +1,11 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = np.loadtxt("results32_t2_perlmutter.txt")
+data = np.loadtxt("results32_t2_euler.txt")
 i = data[:, 0].astype(int)
 t_ms_32 = data[:, 1]
 
-data = np.loadtxt("results1024_t2_perlmutter.txt")
+data = np.loadtxt("results1024_t2_euler.txt")
 t_ms_1024 = data[:, 1]
 
 plt.figure()

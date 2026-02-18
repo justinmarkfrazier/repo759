@@ -17,7 +17,7 @@ datafile="results32_t2_euler.txt"
 for i in {10..29}; do
   n=$((2**i))
 
-  out=$(srun ./task2 "$n" 128 32)
+  out=$(srun ./task2 "$n" 128 2048)
 
   time_ms=$(printf "%s\n" "$out" | sed -n '2p')
 
@@ -37,7 +37,7 @@ datafile="results1024_t2_euler.txt"
 for i in {10..29}; do
   n=$((2**i))
 
-  out=$(srun ./task2 "$n" 128 1024)
+  out=$(srun ./task2 "$n" 128 2048)
 
   time_ms=$(printf "%s\n" "$out" | sed -n '2p')
 
