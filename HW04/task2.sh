@@ -11,7 +11,7 @@ module load nvidia/cuda/13.0.0
 
 nvcc task2.cu stencil.cu -Xcompiler -O3 -Xcompiler -Wall -Xptxas -O3 -std=c++17 -o task2
 
-datafile="results32_t2_euler.txt"
+datafile="results2048_t2_euler.txt"
 : > "$datafile"
 
 for i in {10..29}; do
@@ -37,7 +37,7 @@ datafile="results1024_t2_euler.txt"
 for i in {10..29}; do
   n=$((2**i))
 
-  out=$(srun ./task2 "$n" 128 2048)
+  out=$(srun ./task2 "$n" 128 1024)
 
   time_ms=$(printf "%s\n" "$out" | sed -n '2p')
 
