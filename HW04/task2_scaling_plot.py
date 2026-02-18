@@ -1,7 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = np.loadtxt("results32_t2_euler.txt")
+data = np.loadtxt("results2048_t2_euler.txt")
 i = data[:, 0].astype(int)
 t_ms_32 = data[:, 1]
 
@@ -9,7 +9,7 @@ data = np.loadtxt("results1024_t2_euler.txt")
 t_ms_1024 = data[:, 1]
 
 plt.figure()
-plt.plot(i, t_ms_32, marker='o', label="32 threads per block")
+plt.plot(i, t_ms_32, marker='o', label="2048 threads per block")
 plt.plot(i, t_ms_1024, marker='s', label="1024 threads per block")
 
 plt.yscale('log')
