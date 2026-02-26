@@ -1,14 +1,14 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
-data = np.loadtxt("best_int.txt")
+data = np.loadtxt("best_int_euler.txt")
 bd = data[:, 0].astype(int)
 matmul1 = data[:, 1]
 
-data = np.loadtxt("best_float.txt")
+data = np.loadtxt("best_float_euler.txt")
 matmul2 = data[:, 1]
 
-data = np.loadtxt("best_double.txt")
+data = np.loadtxt("best_double_euler.txt")
 matmul3 = data[:, 1]
 
 plt.figure()
