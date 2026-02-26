@@ -22,7 +22,7 @@ int main()
     high_resolution_clock::time_point end;
     duration<double, std::milli> duration_msec;
 
-    const unsigned int n = 1000;
+    const unsigned int n = 2**14;
     std::cout << n;
 
     std::vector<double> A(n * n), B(n * n), C(n * n);
