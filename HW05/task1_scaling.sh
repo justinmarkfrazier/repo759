@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 #SBATCH -p instruction
 #SBATCH --time=0-00:30:00
-#SBATCH --mem=12G
+#SBATCH --mem=100G
 #SBATCH --nodes=1
 #SBATCH --gres=gpu:1
 #SBATCH --ntasks=1
