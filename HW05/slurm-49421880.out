@@ -1,0 +1,13 @@
+nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+---- RUN n=257 block_dim=16 ----
+srun: error: nid001324: task 0: Segmentation fault
+srun: Terminating StepId=49421880.0
+---- RUN n=1024 block_dim=16 ----
+srun: error: nid001324: task 0: Segmentation fault
+srun: Terminating StepId=49421880.1
+---- RUN n=1024 block_dim=32 ----
+srun: error: nid001324: task 0: Segmentation fault
+srun: Terminating StepId=49421880.2
+---- RUN n=2^30 block_dim=32 ----
+0
+168.232

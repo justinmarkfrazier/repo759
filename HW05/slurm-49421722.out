@@ -1,0 +1,37 @@
+nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+reduce.cu:1:10: error: #include expects "FILENAME" or <FILENAME>
+    1 | #include 'reduce.cuh'
+      |          ^~~~~~~~~~~~
+---- RUN n=257 block_dim=16 ----
+-506
+-1337
+15.429
+4.57461
+-9.87833
+1.03539
+-10.9396
+-4.6234
+0.788864
+---- RUN n=1024 block_dim=16 ----
+499
+272
+17.9228
+-26.8708
+7.47961
+6.38586
+-6.6445
+-6.82896
+11.6296
+---- RUN n=1024 block_dim=32 ----
+-888
+-1470
+11.2358
+6.1462
+1.79689
+4.94112
+5.66276
+10.4459
+8.8168
+---- RUN n=2^30 block_dim=32 ----
+srun: error: nid001328: task 0: Segmentation fault
+srun: Terminating StepId=49421722.3

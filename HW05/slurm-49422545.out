@@ -1,0 +1,13 @@
+nvcc warning : Support for offline compilation for architectures prior to '<compute/sm/lto>_75' will be removed in a future release (Use -Wno-deprecated-gpu-targets to suppress warning).
+---- RUN n=257 block_dim=16 ----
+-5.86572
+5.76272
+---- RUN n=1024 block_dim=16 ----
+27.8155
+8.60374
+---- RUN n=1024 block_dim=32 ----
+1.6875
+4.89904
+---- RUN n=2^30 block_dim=32 ----
+-28480.7
+18.0196
