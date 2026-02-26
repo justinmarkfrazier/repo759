@@ -11,6 +11,10 @@ module load nvidia/cuda/13.0.0
 
 nvcc task2.cu reduce.cu -Xcompiler -O3 -Xcompiler -Wall -Xptxas -O3 -std=c++17 -o task2
 
+# prevent cold start
+echo "Running once to prevent cold start"
+srun ./task2 1024 1024
+
 datafile="results2_1024.txt"
 : > "$datafile"
 
