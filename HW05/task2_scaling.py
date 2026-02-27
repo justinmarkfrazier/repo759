@@ -23,4 +23,4 @@ plt.xticks(i, [fr"$2^{{{k}}}$" for k in i])
 plt.legend()
 
 plt.tight_layout()
-plt.savefig("task2_euler.pdf", dpi=400)
+plt.savefig("task2_euler.png", dpi=400)

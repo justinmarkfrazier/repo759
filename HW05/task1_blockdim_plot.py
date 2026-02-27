@@ -27,4 +27,4 @@ plt.xticks(bd)
 
 plt.legend()
 plt.tight_layout()
-plt.savefig("blockdim_sweep.pdf", dpi=400)
+plt.savefig("blockdim_sweep.png", dpi=400)
