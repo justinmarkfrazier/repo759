@@ -12,7 +12,7 @@ module load nvidia/cuda/13.0.0
 nvcc task1.cu mmul.cu -Xcompiler -O3 -Xcompiler -Wall -Xptxas -O3 -lcublas -std=c++17 -o task1
 
 # --- parameters ---
-n_tests=10000
+n_tests=100000
 datafile="results_task1_${n_tests}_euler.txt"
 : > "$datafile"
 
