@@ -1,0 +1,5 @@
+task1.cu: In function ‘int main(int, char**)’:
+task1.cu:70:19: warning: comparison of integer expressions of different signedness: ‘int’ and ‘const unsigned int’ [-Wsign-compare]
+   70 |     for (int t = 0; t < n_tests; ++t) {
+      |                 ~~^~~~~~~~~
+0.0302720.01628160.0148070.01461621.25772
