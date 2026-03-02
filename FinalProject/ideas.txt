@@ -1,0 +1,10 @@
+Final Project Thoughts and Ideas
+
+--- BASICS ---
+- Poisson eigenvalue solver
+- Finite elements for discretization
+- Use SLEPc / PETSc for GPU-friendly solvers
+
+--- DETAILS ---
+- solve mode-coupled Laplace eigenproblem in cylindrical domain
+    -
