@@ -32,8 +32,8 @@ int main(int argc, char *argv[])
     const float  f_min = -1.0f, f_max = 1.0f;
 
     // create and fill matrices A and B
-    std::vector<int> A_vec(n*n);
-    std::vector<int> B_vec(n*n);
+    std::vector<float> A_vec(n*n);
+    std::vector<float> B_vec(n*n);
 
     for (unsigned int i = 0; i < n * n; ++i) {
         A_vec[i] = rand_num<float>(f_min, f_max);
