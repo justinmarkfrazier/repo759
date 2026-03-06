@@ -6,7 +6,7 @@
 #SBATCH -n 1
 #SBATCH --gpus-per-task=1
 #SBATCH -J hpc_gpu_test
-#SBATCH -t 0:05:00
+#SBATCH -t 0:30:00
 #SBATCH --mail-type=BEGIN,END,FAIL
 #SBATCH --mail-user=jmfrazier2@wisc.edu
 
@@ -19,10 +19,10 @@ srun ./task2 65536 1024
 datafile="results_task2_perlmutter.txt"
 : > "$datafile"
 
-for i in {10..16}; do
+for i in {10..35}; do
   n=$((2**i))
 
-  out=$(srun ./task2 "$n" 1024)
+  out=$(srun ./task2 "$n" 512)
 
   time_ms=$(printf "%s\n" "$out" | sed -n '2p')
 

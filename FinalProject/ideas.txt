@@ -7,4 +7,6 @@ Final Project Thoughts and Ideas
 
 --- DETAILS ---
 - solve mode-coupled Laplace eigenproblem in cylindrical domain
-    -
+    -div (k*grad(u)) = A*u      where k=k(r,theta,z)
+- expand solution in Fourier series:
+    u(r,theta,z) = sum(-M -> M) sum(-N -> N) [  u_{m,n}(r)*exp(i(m*theta + (2pi*n/L)*z))  ]
