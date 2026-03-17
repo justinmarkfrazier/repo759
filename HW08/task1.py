@@ -10,7 +10,7 @@ plt.plot(i, t, marker='o')
 
 plt.grid(True, which="both", ls="--", lw=0.5)
 
-plt.title("")
+plt.title("Task 1 Matrix Multiplication Time vs. Number of Threads")
 plt.xlabel("threads")
 plt.ylabel("time (ms)")
 plt.xticks(i, [fr"{k}" for k in i])
