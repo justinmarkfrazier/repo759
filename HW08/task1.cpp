@@ -51,7 +51,7 @@ int main(int argc, char *argv[])
 
     std::cout << C[0];
     std::cout << "\n" << C.back();
-    std::cout << "\n" << duration_msec.count() << "\n";
+    std::cout << "\n" << duration_msec << "\n";
 
     return 0;
 }
