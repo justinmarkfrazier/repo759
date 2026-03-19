@@ -1,4 +1,4 @@
-#include "matmul.h"
+#include "convolution.h"
 #include <iostream>
 #include <cstddef>
 #include <vector>
@@ -36,27 +36,33 @@ int main(int argc, char *argv[])
     const unsigned int t = std::atoi(argv[2]);
 
     // rand num range
-    const float  f_min = 0.0f, f_max = 1.0f;
+    const float  i_min = -10.0f, i_max = 10.0f;
+    const float  m_min = -1.0f, m_max = 1.0f;
 
-    // create and fill matrices A and B
-    std::vector<float> A(n*n);
-    std::vector<float> B(n*n);
-    std::vector<float> C(n * n, 0.0f);
+    std::vector<float> image(n * n);
+    std::vector<float> output(n * n, 0.0f);
 
-    for (unsigned int i = 0; i < n * n; ++i) {
-        A[i] = rand_num<float>(f_min, f_max);
-        B[i] = rand_num<float>(f_min, f_max);
+    const std::size_t m = 3;
+    std::vector<float> mask(m * m);
+
+    for (std::size_t i = 0; i < n * n; ++i) {
+        image[i] = rand_num<float>(i_min, i_max);
+    }
+
+    for (std::size_t i = 0; i < m * m; ++i) {
+        mask[i] = rand_num<float>(m_min, m_max);
     }
 
     omp_set_num_threads(t);
 
     start = high_resolution_clock::now();
-    mmul(A.data(), B.data(), C.data(), n);
+    convolve(image.data(), output.data(), n, mask.data(), m);
     end = high_resolution_clock::now();
     duration_msec = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
-    std::cout << C[0];
-    std::cout << "\n" << C.back();
-    std::cout << "\n" << duration_msec.count() << "\n";
+    
+    std::cout << output[0] << "\n";
+    std::cout << output[n * n - 1] << "\n";
+    std::cout << duration_msec.count() << "\n";
 
     return 0;
 }
