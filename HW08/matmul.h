@@ -10,6 +10,6 @@
 
 // The matrices A, B, and C have dimension n by n and are represented as 1D arrays.
 
-void mmul(const float* A, const float* B, float* C, const std::size_t n);
+void mmul(const float* A, const float* B, float* C, const unsigned int n);
 
 #endif
