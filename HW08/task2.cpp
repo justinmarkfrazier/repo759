@@ -25,12 +25,6 @@ using std::chrono::duration;
 
 int main(int argc, char *argv[])
 {
-
-    // Timing variables
-    high_resolution_clock::time_point start;
-    high_resolution_clock::time_point end;
-    duration<double, std::milli> duration_msec;
-
     // Read command line arguments
     const unsigned int n = std::atoi(argv[1]);
     const unsigned int t = std::atoi(argv[2]);
@@ -55,10 +49,10 @@ int main(int argc, char *argv[])
 
     omp_set_num_threads(t);
 
-    start = high_resolution_clock::now();
+    double start = omp_get_wtime();
     convolve(image.data(), output.data(), n, mask.data(), m);
-    end = high_resolution_clock::now();
-    duration_msec = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
+    double end = omp_get_wtime();
+    double duration_msec = (end - start) * 1000.0;
     
     std::cout << output[0] << "\n";
     std::cout << output[n * n - 1] << "\n";
