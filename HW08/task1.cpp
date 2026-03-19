@@ -25,14 +25,8 @@ using std::chrono::duration;
 
 int main(int argc, char *argv[])
 {
-
-    // Timing variables
-    high_resolution_clock::time_point start;
-    high_resolution_clock::time_point end;
-    duration<double, std::milli> duration_msec;
-
     // Read command line arguments
-    const unsigned int n = std::atoi(argv[1]);
+    const std::size_t n = std::atoi(argv[1]);
     const unsigned int t = std::atoi(argv[2]);
 
     // rand num range
@@ -50,10 +44,11 @@ int main(int argc, char *argv[])
 
     omp_set_num_threads(t);
 
-    start = high_resolution_clock::now();
+    double start = omp_get_wtime();
     mmul(A.data(), B.data(), C.data(), n);
-    end = high_resolution_clock::now();
-    duration_msec = std::chrono::duration_cast<duration<double, std::milli>>(end - start);
+    double end = omp_get_wtime();
+    double duration_msec = (end - start) * 1000.0;
+
     std::cout << C[0];
     std::cout << "\n" << C.back();
     std::cout << "\n" << duration_msec.count() << "\n";
