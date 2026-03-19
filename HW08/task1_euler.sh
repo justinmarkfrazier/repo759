@@ -1,6 +1,5 @@
 #!/usr/bin/env zsh
 #SBATCH -p instruction
-#SBATCH --exclusive
 #SBATCH --time=0-00:10:00
 #SBATCH --mem=12G
 #SBATCH --nodes=1
