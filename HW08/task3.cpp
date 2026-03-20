@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
     double duration_msec = (end - start) * 1000.0;
     
     std::cout << arr[0] << "\n";
-    std::cout << arr[n * n - 1] << "\n";
+    std::cout << arr[n - 1] << "\n";
     std::cout << duration_msec << "\n";
 
     return 0;
