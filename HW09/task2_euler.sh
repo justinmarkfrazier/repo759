@@ -6,8 +6,8 @@
 #SBATCH --cpus-per-task=10
 #SBATCH -J hpc_hw
 
-g++ task2.cpp montecarlo_nosimd.cpp -Wall -O3 -std=c++17 -o task2_nosimd -fopenmp-fno-tree-vectorize -march=native -fopt-info-vec
-g++ task2.cpp montecarlo.cpp -Wall -O3 -std=c++17 -o task2_simd -fopenmp-fno-tree-vectorize -march=native -fopt-info-vec
+g++ task2.cpp montecarlo_nosimd.cpp -Wall -O3 -std=c++17 -o task2_nosimd -fopenmp -fno-tree-vectorize -march=native -fopt-info-vec
+g++ task2.cpp montecarlo.cpp -Wall -O3 -std=c++17 -o task2_simd -fopenmp -fno-tree-vectorize -march=native -fopt-info-vec
 
 export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
