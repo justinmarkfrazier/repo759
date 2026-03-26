@@ -11,8 +11,16 @@ g++ task1.cpp cluster.cpp -Wall -O3 -std=c++17 -o task1 -fopenmp
 export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
 
+> results1.txt
+
 for t in $(seq 1 10)
 do
-    ts=$((2**10))
-    ./task1 5040000 $t | awk -v t="$t" 'NR==3 {print t, $1}' >> results1.txt
+    avg=$(
+        for run in $(seq 1 10)
+        do
+            ./task1 5040000 $t | awk 'NR==3 {print $1}'
+        done | awk '{sum += $1} END {print sum / NR}'
+    )
+
+    echo "$t $avg" >> results1.txt
 done
