@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         centers[i] = static_cast<float>(n) * (2.0f * i + 1.0f) / (2.0f * t);
     }
 
-    std::vector<float> dists(t) = 0.0f;
+    std::vector<float> dists(t, 0.0f);
 
     omp_set_num_threads(t);
 
