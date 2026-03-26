@@ -8,6 +8,9 @@
 
 g++ task1.cpp cluster.cpp -Wall -O3 -std=c++17 -o task1 -fopenmp
 
+export OMP_PLACES=cores
+export OMP_PROC_BIND=spread
+
 for t in $(seq 1 10)
 do
     ts=$((2**10))
