@@ -38,14 +38,13 @@ int main(int argc, char *argv[])
 
     std::sort(arr.begin(), arr.end());
 
-    const size_t PAD = 16;
-
-    std::vector<float> centers(PAD * t, 0.0f);
-    std::vector<float> dists(PAD * t, 0.0f);
+    std::vector<float> centers(t);
 
     for (std::size_t i = 0; i < t; ++i) {
-        centers[i * PAD] = static_cast<float>(n) * (2.0f * i + 1.0f) / (2.0f * t);
+        centers[i] = static_cast<float>(n) * (2.0f * i + 1.0f) / (2.0f * t);
     }
+
+    std::vector<float> dists(t, 0.0f);
 
     omp_set_num_threads(t);
 
@@ -56,12 +55,12 @@ int main(int argc, char *argv[])
     
     std::size_t max_id = 0;
     for (std::size_t i = 1; i < t; ++i) {
-        if (dists[i * PAD] > dists[max_id * PAD]) {
+        if (dists[i] > dists[max_id]) {
             max_id = i;
         }
     }
 
-    std::cout << dists[max_id * PAD] << "\n";
+    std::cout << dists[max_id] << "\n";
     std::cout << max_id << "\n";
     std::cout << duration_msec << "\n";
 
