@@ -12,7 +12,7 @@ g++ task2.cpp montecarlo.cpp -Wall -O3 -std=c++17 -o task2_simd -fopenmp-fno-tre
 export OMP_PLACES=cores
 export OMP_PROC_BIND=spread
 
-> results1a.txt
+> results2a.txt
 
 for t in $(seq 1 10)
 do
@@ -23,10 +23,10 @@ do
         done | awk '{sum += $1} END {print sum / NR}'
     )
 
-    echo "$t $avg" >> results1a.txt
+    echo "$t $avg" >> results2a.txt
 done
 
-> results1b.txt
+> results2b.txt
 
 for t in $(seq 1 10)
 do
@@ -37,5 +37,5 @@ do
         done | awk '{sum += $1} END {print sum / NR}'
     )
 
-    echo "$t $avg" >> results1b.txt
+    echo "$t $avg" >> results2b.txt
 done
