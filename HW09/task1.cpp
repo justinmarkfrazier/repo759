@@ -1,6 +1,7 @@
 #include "cluster.h"
 #include <iostream>
 #include <cstddef>
+#include <algorithm>
 #include <vector>
 #include <random>
 #include <chrono>
