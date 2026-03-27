@@ -8,13 +8,17 @@
 
 > task3_info.txt
 
-echo "=== hostnames seen by the 2 MPI ranks ===" >> task3_info.txt
-srun -n 2 hostname >> task3_info.txt
+echo "=== rank placement / hostname / allowed CPUs ===" >> task3_info.txt
+srun -n 2 bash -c '
+echo "HOST=$(hostname)"
+echo "CPUS_ALLOWED=$(grep Cpus_allowed_list /proc/self/status | awk "{print \$2}")"
+echo
+' >> task3_info.txt
 
-echo "" >> task3_info.txt
 echo "=== lscpu ===" >> task3_info.txt
 lscpu >> task3_info.txt
+echo >> task3_info.txt
 
-echo "" >> task3_info.txt
 echo "=== numactl -H ===" >> task3_info.txt
 numactl -H >> task3_info.txt
+echo >> task3_info.txt
